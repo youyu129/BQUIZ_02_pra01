@@ -32,26 +32,17 @@
                 <a class="blo" href="?do=know">講座訊息</a>
                 <a class="blo" href="?do=que">問卷調查</a>
             </div>
-            <div class="hal" id="main">
-                <div>
-                    <span style="width:18%; display:inline-block;">
-                        <a href="?do=login">會員登入</a>
-                    </span>
-                    <div class="">
-                    </div>
-                </div>
 
-                <?php
-				$do=$_GET['do']??'main';
-				$file="front/".$do.".php";
-				echo $file;
-				if(file_exists($file)){
-					include $file;
-				}else{
-					include "front/main.php";
-				}
-				?>
-            </div>
+            <?php
+			$do=$_GET['do']??'main';
+			$file="front/".$do.".php";
+			if(file_exists($file)){
+				include $file;
+			}else{
+				include "front/main.php";
+			}
+			?>
+
         </div>
         <div id="bottom">
             本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2012健康促進網社群平台 All Right Reserved
