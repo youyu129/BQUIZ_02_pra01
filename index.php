@@ -17,7 +17,6 @@
         style="background:rgba(51,51,51,0.8); color:#FFF; min-height:100px; width:300px; position:fixed; display:none; z-index:9999; overflow:auto;">
         <pre id="ssaa"></pre>
     </div>
-    <iframe name="back" style="display:none;"></iframe>
     <div id="all">
         <div id="title">
             00 月 00 號 Tuesday | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
