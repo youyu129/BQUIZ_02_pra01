@@ -19,9 +19,9 @@
     </div>
     <div id="all">
         <div id="title">
-            02 月 15 號 Saturday | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
+            <?=date("m");?> 月 <?=date("d");?> 號 <?=date("l");?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
         <div id="title2">
-            <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁"></a>
+            <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁" title="健康促進網 - 回首頁"></a>
         </div>
         <div id="mm">
             <div class="hal" id="lef">
