@@ -42,8 +42,23 @@ function find($id){
     return $this->fetchOne($sql);
 }
 
-
 // save
+function save($array){
+    // 如果有id就是更新
+    if(isset($array['id'])){
+        $id=$array['id'];
+        unset($array['id']);
+        $set=$this->a2s($array);
+        $sql="UPDATE $this->table SET " . join(',',$set). " WHERE `id`='$id' ";
+    }else{
+        // 如果沒有id就是新增
+        $cols=array_keys($array);
+        $sql="INSERT INTO $this->table (`".join("`,`",$cols)."`) VALUES ('".join("','",$array)."')";
+        // INSERT INTO `total` (`id`, `date`, `total`) VALUES (NULL, '2025-02-17', '50');
+    }
+    return $this->pdo->exec($sql);
+}
+
 
 // del
 function del($id){
@@ -66,6 +81,8 @@ function a2s($array){
     }
     return $tmp;
 }
+
+
 
 }
 
