@@ -28,11 +28,35 @@ function all(...$arg){
     }
 
 }
+
 // find
+function find($id){
+    $sql="SELECT * FROM $this->table ";
+
+    if(is_array($id)){
+        $where=$this->a2s($id);
+        $sql=$sql." WHERE " . join(" && ",$where);
+    }else{
+        $sql=$sql . " WHERE `id`='$id' ";
+    }
+    return $this->fetchOne($sql);
+}
+
 
 // save
 
 // del
+function del($id){
+    $sql="DELETE FROM $this->table ";
+
+    if(is_array($id)){
+        $where=$this->a2s($id);
+        $sql=$sql . " WHERE " . join(" && ",$where);
+    }else{
+        $sql=" WHERE `id`='$id' ";
+    }
+    return $this->pdo->exec($sql);
+}
 
 }
 
