@@ -58,6 +58,15 @@ function del($id){
     return $this->pdo->exec($sql);
 }
 
+// a2s
+function a2s($array){
+    $tmp=[];
+    foreach($array as $key => $value){
+        $tmp[]="`$key`='$value'";
+    }
+    return $tmp;
+}
+
 }
 
 
