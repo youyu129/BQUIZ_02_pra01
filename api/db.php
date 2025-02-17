@@ -82,7 +82,14 @@ function a2s($array){
     return $tmp;
 }
 
-
+// fetchOne
+function fetchOne($sql){
+    return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
+}
+// fetchAll
+function fetchAll($sql){
+    return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+}
 
 }
 
