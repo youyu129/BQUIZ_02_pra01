@@ -67,9 +67,9 @@ function reg() {
 }
 
 function reset() {
-    $("#acc").val(""),
-        $("#pw").val(""),
-        $("#pw2").val(""),
-        $("#email").val("")
+    $("#acc").val("")
+    $("#pw").val("")
+    $("#pw2").val("")
+    $("#email").val("")
 }
 </script>
