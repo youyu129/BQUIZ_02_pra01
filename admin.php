@@ -51,7 +51,7 @@
                             echo "<p>歡迎，";
                             echo $_SESSION['login'];
                             echo "</p>";
-                            echo "<button>管理</button>|";
+                            echo "<button onclick=\"location.href='admin.php'\">管理</button>|";
                             echo "<button onclick='logout()'>登出</button>";
                         }
                         ?>
