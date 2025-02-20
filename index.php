@@ -45,8 +45,17 @@
                         <marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
                     </div>
                     <span style="width:24%; display:inline-block;">
-                        <span>歡迎，test
-                        </span><a href="?do=login">會員登入</a>
+                        <?php
+                        if(empty($_SESSION['login'])){
+                            echo "<a href='?do=login'>會員登入</a>";
+                        }else{
+                            echo "<span>歡迎，";
+                            echo $_SESSION['login'];
+                            echo "</span>";
+                            echo "<button onclick='logout()'>登出</button>";
+                        }
+                        ?>
+
                     </span>
                 </div>
 
