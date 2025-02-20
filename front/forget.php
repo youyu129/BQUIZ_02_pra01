@@ -14,8 +14,11 @@
             </td>
         </tr>
         <tr>
+            <td id="result"></td>
+        </tr>
+        <tr>
             <td>
-                <button>尋找</button>
+                <input type="button" value="尋找">
             </td>
         </tr>
     </table>
