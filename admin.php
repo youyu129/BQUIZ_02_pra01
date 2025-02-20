@@ -1,5 +1,5 @@
 ﻿<?php
-    include_once "db.php";
+    include_once "api/db.php";
 ?>
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -22,7 +22,7 @@
     </div>
     <div id="all">
         <div id="title">
-            <?php echo date("m");?> 月 <?php echo date("d");?> 號 <?php echo date("l");?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
+            <?php echo date("m"); ?> 月<?php echo date("d"); ?> 號<?php echo date("l"); ?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
         <div id="title2">
             <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁" title="健康促進網 - 回首頁"></a>
         </div>

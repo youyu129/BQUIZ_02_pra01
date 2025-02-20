@@ -1,38 +1,53 @@
 <?php
-date_default_timezone_set("Asia/Taipei");
+
 session_start();
 
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset:utf8;dbname=db0202";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db13";
     protected $pdo;
-    protected $talbe;
+    protected $table;
+    public static $type = [
+        1 => '健康新知',
+        2 => '菸害防治',
+        3 => '癌症防治',
+        4 => '慢性病防治',
+    ];
 
     public function __construct($table)
     {
         $this->table = $table;
         $this->pdo   = new PDO($this->dsn, 'root', '');
     }
-// all
+
+    /**
+     * 撈出全部資料
+     * 1. 整張資料表
+     * 2. 有條件
+     * 3. 其他SQL功能
+     */
     public function all(...$arg)
     {
         $sql = "SELECT * FROM $this->table ";
         if (! empty($arg[0])) {
             if (is_array($arg[0])) {
+
                 $where = $this->a2s($arg[0]);
                 $sql   = $sql . " WHERE " . join(" && ", $where);
             } else {
+                //$sql=$sql.$arg[0];
                 $sql .= $arg[0];
+
             }
-            if (! empty($arg[1])) {
-                $sql = $sql . $arg[1];
-            }
-            return $this->fetchAll($sql);
         }
 
+        if (! empty($arg[1])) {
+            $sql = $sql . $arg[1];
+        }
+
+        return $this->fetchAll($sql);
     }
 
-// find
     public function find($id)
     {
         $sql = "SELECT * FROM $this->table ";
@@ -41,30 +56,32 @@ class DB
             $where = $this->a2s($id);
             $sql   = $sql . " WHERE " . join(" && ", $where);
         } else {
-            $sql = $sql . " WHERE `id`='$id' ";
+            $sql .= " WHERE `id`='$id' ";
         }
         return $this->fetchOne($sql);
     }
 
-// save
     public function save($array)
     {
-        // 如果有id就是更新
+
         if (isset($array['id'])) {
+            //update
+            //update table set `欄位1`='值1',`欄位2`='值2' where `id`='值'
             $id = $array['id'];
             unset($array['id']);
             $set = $this->a2s($array);
-            $sql = "UPDATE $this->table SET " . join(',', $set) . " WHERE `id`='$id' ";
+            $sql = "UPDATE $this->table SET " . join(',', $set) . " where `id`='$id'";
+
         } else {
-            // 如果沒有id就是新增
+            //insert
             $cols = array_keys($array);
-            $sql  = "INSERT INTO $this->table (`" . join("`,`", $cols) . "`) VALUES ('" . join("','", $array) . "')";
-            // INSERT INTO `total` (`id`, `date`, `total`) VALUES (NULL, '2025-02-17', '50');
+            $sql  = "INSERT INTO $this->table (`" . join("`,`", $cols) . "`) VALUES('" . join("','", $array) . "')";
         }
+
+        //echo $sql;
         return $this->pdo->exec($sql);
     }
 
-// del
     public function del($id)
     {
         $sql = "DELETE FROM $this->table ";
@@ -73,12 +90,16 @@ class DB
             $where = $this->a2s($id);
             $sql   = $sql . " WHERE " . join(" && ", $where);
         } else {
-            $sql = " WHERE `id`='$id' ";
+            $sql .= " WHERE `id`='$id' ";
         }
+
+        //echo $sql;
         return $this->pdo->exec($sql);
     }
 
-// a2s
+    /**
+     * 把陣列轉成條件字串陣列
+     */
     public function a2s($array)
     {
         $tmp = [];
@@ -88,23 +109,67 @@ class DB
         return $tmp;
     }
 
-// fetchOne
-    public function fetchOne($sql)
+    public function max($col, $where = [])
     {
+        return $this->math('max', $col, $where);
+    }
+    public function sum($col, $where = [])
+    {
+        return $this->math('sum', $col, $where);
+    }
+    public function min($col, $where = [])
+    {
+        return $this->math('min', $col, $where);
+    }
+    public function avg($col, $where = [])
+    {
+        return $this->avg('avg', $col, $where);
+    }
+    public function count($where = [])
+    {
+        return $this->math('count', '*', $where);
+    }
+
+    /**
+     * 取得單筆資料
+     */
+    protected function fetchOne($sql)
+    {
+        //echo $sql;
         return $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
-// fetchAll
-    public function fetchAll($sql)
+
+    /**
+     * 取得多筆資料
+     */
+    protected function fetchAll($sql)
     {
+        //echo $sql;
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-}
+    /**
+     * 方便使用各個聚合函式
+     */
 
+    protected function math($math, $col = 'id', $where = [])
+    {
+        $sql = "SELECT $math($col) FROM $this->table";
+
+        if (! empty($where)) {
+            $tmp = $this->a2s($where);
+            $sql = $sql . " WHERE " . join(" && ", $tmp);
+        }
+
+        return $this->pdo->query($sql)->fetchColumn();
+    }
+
+}
+// this要在物件內才可用
 function q($sql)
 {
-    $dsn = "mysql:host=localhost;charset:utf8;dbname=db0202";
-    $pdo = new PDO($dsn, 'root', '');
+    $pdo = new PDO("mysql:host=localhost;charset=utf8;dbname=db13", 'root', '');
+    return $pdo->query($sql)->fetchAll();
 }
 
 function dd($array)
@@ -120,14 +185,19 @@ function to($url)
 }
 
 $Total = new DB('total');
+$User  = new DB('users');
+$News  = new DB('news');
+$Que   = new DB('que');
+$Log   = new DB('log');
 
+// 如果沒來過的人
 if (! isset($_SESSION['view'])) {
-    if ($Total->count(['date' => date("Y-m-d")]) > 0) {
-        $total = $Total->find(['date' => date("Y-m-d")]);
+    if ($Total->count(['day' => date("Y-m-d")]) > 0) {
+        $total = $Total->find(['day' => date("Y-m-d")]);
         $total['total']++;
         $Total->save($total);
     } else {
-        $Total->save(['date' => date("Y-m-d"), 'total' => 1]);
+        $Total->save(['day' => date("Y-m-d"), 'total' => 1]);
     }
     $_SESSION['view'] = 1;
 }
