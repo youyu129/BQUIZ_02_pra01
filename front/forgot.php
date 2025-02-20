@@ -18,11 +18,21 @@
         </tr>
         <tr>
             <td>
-                <input type="button" value="尋找">
+                <input type="button" value="尋找" onclick="forgot()">
             </td>
         </tr>
     </table>
 
-
-
 </fieldset>
+
+<script>
+function forgot() {
+    let email = $("#email").val()
+    $.get("./api/chk_email.php", {
+        email
+    }, (res) => {
+        console.log('chk acc', res);
+        $("#result").html(res)
+    })
+}
+</script>

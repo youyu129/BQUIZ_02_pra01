@@ -46,7 +46,7 @@
                         <span style="width:24%; display:inline-block;">
                             <?php
                         if(empty($_SESSION['login'])){
-                            echo "<a href='?do=login'>會員登入</a>";
+                            echo "<a href='index.php?do=login'>會員登入</a>";
                         }else{
                             echo "<p>歡迎，";
                             echo $_SESSION['login'];
