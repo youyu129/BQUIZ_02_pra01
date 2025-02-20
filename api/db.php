@@ -4,7 +4,7 @@ session_start();
 
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db13";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db0202";
     protected $pdo;
     protected $table;
     public static $type = [
@@ -168,7 +168,7 @@ class DB
 // this要在物件內才可用
 function q($sql)
 {
-    $pdo = new PDO("mysql:host=localhost;charset=utf8;dbname=db13", 'root', '');
+    $pdo = new PDO("mysql:host=localhost;charset=utf8;dbname=db0202", 'root', '');
     return $pdo->query($sql)->fetchAll();
 }
 
@@ -192,12 +192,12 @@ $Log   = new DB('log');
 
 // 如果沒來過的人
 if (! isset($_SESSION['view'])) {
-    if ($Total->count(['day' => date("Y-m-d")]) > 0) {
-        $total = $Total->find(['day' => date("Y-m-d")]);
+    if ($Total->count(['date' => date("Y-m-d")]) > 0) {
+        $total = $Total->find(['date' => date("Y-m-d")]);
         $total['total']++;
         $Total->save($total);
     } else {
-        $Total->save(['day' => date("Y-m-d"), 'total' => 1]);
+        $Total->save(['date' => date("Y-m-d"), 'total' => 1]);
     }
     $_SESSION['view'] = 1;
 }

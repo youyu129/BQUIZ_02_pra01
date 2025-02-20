@@ -22,9 +22,10 @@
     </div>
     <div id="all">
         <div id="title">
-            <?php echo date("m"); ?> 月<?php echo date("d"); ?> 號<?php echo date("l"); ?> | 今日瀏覽:
+            <?php echo date("m"); ?> 月<?php echo date("d"); ?> 號<?php echo date("l"); ?> |
+            今日瀏覽:<?php echo $Total->find(['date' => date("Y-m-d")])['total']; ?>
             |
-            累積瀏覽: 36 </div>
+            累積瀏覽:<?php echo $Total->sum('total'); ?></div>
         <div id="title2">
             <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁" title="健康促進網 - 回首頁"></a>
         </div>
