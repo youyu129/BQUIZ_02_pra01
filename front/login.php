@@ -44,22 +44,25 @@ function login() {
 
         if (parseInt(res) < 1) {
             alert("查無帳號")
-        }
-        $.post("./api/chk_pw.php", {
-            acc: user.acc,
-            pw: user.pw
-        }, (res) => {
-            console.log('chk pw =>', res);
-            if (res == 1) {
-                if (user.acc == "admin") {
-                    location.href = "admin.php"
+            reset()
+        } else {
+            $.post("./api/chk_pw.php", {
+                acc: user.acc,
+                pw: user.pw
+            }, (res) => {
+                console.log('chk pw =>', res);
+                if (res == 1) {
+                    if (user.acc == "admin") {
+                        location.href = "admin.php"
+                    } else {
+                        location.href = "index.php"
+                    }
                 } else {
-                    location.href = "index.php"
+                    alert("密碼錯誤")
+                    reset()
                 }
-            } else {
-                alert("密碼錯誤")
-            }
-        })
+            })
+        }
     })
 }
 
