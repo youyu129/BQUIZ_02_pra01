@@ -45,7 +45,8 @@
                         <marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
                     </div>
                     <span style="width:24%; display:inline-block;">
-                        <a href="?do=login">會員登入</a>
+                        <span>歡迎，test
+                        </span><a href="?do=login">會員登入</a>
                     </span>
                 </div>
 

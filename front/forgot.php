@@ -1,8 +1,8 @@
-<fieldset style="width: 80%;margin:10px auto;">
+<fieldset style="width: 50%;margin:10px auto;">
     <legend>
         忘記密碼
     </legend>
-    <table>
+    <table style="width:98%">
         <tr>
             <td>
                 <p>請輸入信箱以查詢密碼</p>
@@ -10,7 +10,7 @@
         </tr>
         <tr>
             <td>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" style="width:80%">
             </td>
         </tr>
         <tr>
