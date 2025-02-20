@@ -44,9 +44,17 @@
                             <marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
                         </div>
                         <span style="width:24%; display:inline-block;">
-                            <div>歡迎,admin</div>
-                            <button>管理</button>|
-                            <button>登出</button>
+                            <?php
+                        if(empty($_SESSION['login'])){
+                            echo "<a href='?do=login'>會員登入</a>";
+                        }else{
+                            echo "<p>歡迎，";
+                            echo $_SESSION['login'];
+                            echo "</p>";
+                            echo "<button>管理</button>|";
+                            echo "<button onclick='logout()'>登出</button>";
+                        }
+                        ?>
                         </span>
                     </div>
 
