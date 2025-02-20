@@ -53,7 +53,7 @@ function reg() {
         $.get("./api/chk_acc.php", {
             acc: user.acc
         }, (res) => {
-            if (parseInt(res) == 1) {
+            if (parseInt(res) > 0) {
                 alert("帳號重複")
             } else {
                 $.post("./api/reg.php", user, (res) => {

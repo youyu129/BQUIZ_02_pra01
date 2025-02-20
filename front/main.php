@@ -1,34 +1,38 @@
 <style>
-    . {
-        box-sizing: border-box;
-    }
+. {
+    box-sizing: border-box;
+}
 
-    .typeContainer {
-        display: flex;
-        justify-content: left;
-        margin-left: 1px;
-    }
+.typeContainer {
+    display: flex;
+    justify-content: left;
+    margin-left: 1px;
+}
 
-    .type {
-        padding: 5px 10px;
-        border: 1px solid #999;
-        margin-left: -1px;
-        background-color: #eee;
-    }
+.type {
+    padding: 5px 10px;
+    border: 1px solid #999;
+    margin-left: -1px;
+    background-color: #eee;
+}
 
-    .text {
-        width: 90%;
-        min-height: 450px;
-        border: 1px solid #999;
-        margin-top: -1px;
-        display: none;
-        padding: 10px;
-    }
+.type:hover {
+    cursor: pointer;
+}
 
-    .show {
-        background-color: white;
-        border-bottom: 1px solid white;
-    }
+.text {
+    width: 90%;
+    min-height: 450px;
+    border: 1px solid #999;
+    margin-top: -1px;
+    display: none;
+    padding: 10px;
+}
+
+.show {
+    background-color: white;
+    border-bottom: 1px solid white;
+}
 </style>
 <div class="typeContainer">
     <div class="type" id="type1">健康新知</div>
@@ -139,60 +143,58 @@
 </div>
 
 <script>
+let type1 = $("#type1")
+let type2 = $("#type2")
+let type3 = $("#type3")
+let type4 = $("#type4")
 
-    let type1 = $("#type1")
-    let type2 = $("#type2")
-    let type3 = $("#type3")
-    let type4 = $("#type4")
+let text1 = $("#text1")
+let text2 = $("#text2")
+let text3 = $("#text3")
+let text4 = $("#text4")
 
-    let text1 = $("#text1")
-    let text2 = $("#text2")
-    let text3 = $("#text3")
-    let text4 = $("#text4")
-
-    type1.on('click', function () {
-        console.log('type1 click ok');
-        text1.show()
-        type1.addClass('show')
-        text2.hide()
-        text3.hide()
-        text4.hide()
-        type2.removeClass('show')
-        type3.removeClass('show')
-        type4.removeClass('show')
-    })
-    type2.on('click', function () {
-        console.log('type2 click ok');
-        text2.show()
-        type2.addClass('show')
-        text1.hide()
-        text3.hide()
-        text4.hide()
-        type1.removeClass('show')
-        type3.removeClass('show')
-        type4.removeClass('show')
-    })
-    type3.on('click', function () {
-        console.log('type3 click ok');
-        text3.show()
-        type3.addClass('show')
-        text1.hide()
-        text2.hide()
-        text4.hide()
-        type1.removeClass('show')
-        type2.removeClass('show')
-        type4.removeClass('show')
-    })
-    type4.on('click', function () {
-        console.log('type4 click ok');
-        text4.show()
-        type4.addClass('show')
-        text1.hide()
-        text2.hide()
-        text3.hide()
-        type1.removeClass('show')
-        type2.removeClass('show')
-        type3.removeClass('show')
-    })
-
+type1.on('click', function() {
+    console.log('type1 click ok');
+    text1.show()
+    type1.addClass('show')
+    text2.hide()
+    text3.hide()
+    text4.hide()
+    type2.removeClass('show')
+    type3.removeClass('show')
+    type4.removeClass('show')
+})
+type2.on('click', function() {
+    console.log('type2 click ok');
+    text2.show()
+    type2.addClass('show')
+    text1.hide()
+    text3.hide()
+    text4.hide()
+    type1.removeClass('show')
+    type3.removeClass('show')
+    type4.removeClass('show')
+})
+type3.on('click', function() {
+    console.log('type3 click ok');
+    text3.show()
+    type3.addClass('show')
+    text1.hide()
+    text2.hide()
+    text4.hide()
+    type1.removeClass('show')
+    type2.removeClass('show')
+    type4.removeClass('show')
+})
+type4.on('click', function() {
+    console.log('type4 click ok');
+    text4.show()
+    type4.addClass('show')
+    text1.hide()
+    text2.hide()
+    text3.hide()
+    type1.removeClass('show')
+    type2.removeClass('show')
+    type3.removeClass('show')
+})
 </script>
