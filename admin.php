@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html
+﻿<?php
+    include_once "db.php";
+?>
+<!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0039) -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,7 +22,7 @@
     </div>
     <div id="all">
         <div id="title">
-            <?=date("m");?> 月 <?=date("d");?> 號 <?=date("l");?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
+            <?php echo date("m");?> 月 <?php echo date("d");?> 號 <?php echo date("l");?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
         <div id="title2">
             <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁" title="健康促進網 - 回首頁"></a>
         </div>
@@ -44,14 +47,14 @@
                 </div>
 
                 <?php
-				$do=$_GET['do']??'main';
-				$file="back/".$do.".php";
-				if(file_exists($file)){
-					include $file;
-				}else{
-					include "back/main.php";
-				}
-				?>
+                    $do   = $_GET['do'] ?? 'main';
+                    $file = "back/" . $do . ".php";
+                    if (file_exists($file)) {
+                        include $file;
+                    } else {
+                        include "back/main.php";
+                    }
+                ?>
             </div>
 
 
