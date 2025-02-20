@@ -22,49 +22,53 @@
     </div>
     <div id="all">
         <div id="title">
-            <?php echo date("m"); ?> 月<?php echo date("d"); ?> 號<?php echo date("l"); ?> | 今日瀏覽: 1 | 累積瀏覽: 36 </div>
-        <div id="title2">
-            <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁" title="健康促進網 - 回首頁"></a>
-        </div>
-        <div id="mm">
-            <div class="hal" id="lef">
-                <a class="blo" href="?do=acc">帳號管理</a>
-                <a class="blo" href="?do=po">分類網誌</a>
-                <a class="blo" href="?do=news">最新文章管理</a>
-                <a class="blo" href="?do=know">講座管理</a>
-                <a class="blo" href="?do=que">問卷管理</a>
+            <?php echo date("m"); ?> 月<?php echo date("d"); ?> 號<?php echo date("l"); ?> |
+            今日瀏覽:<?php echo $Total->find(['date' => date("Y-m-d")])['total']; ?>
+            |
+            累積瀏覽:<?php echo $Total->sum('total'); ?>
+            <a href="index.php" style="float:right;">回首頁</a>
+            <div id="title2">
+                <a href="index.php"><img src="./icon/02B01.jpg" alt="健康促進網 - 回首頁" title="健康促進網 - 回首頁"></a>
             </div>
-            <div class="hal" id="main">
-                <div>
-                    <div style="width:75%; display:inline-block;">
-                        <marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
+            <div id="mm">
+                <div class="hal" id="lef">
+                    <a class="blo" href="?do=acc">帳號管理</a>
+                    <a class="blo" href="?do=po">分類網誌</a>
+                    <a class="blo" href="?do=news">最新文章管理</a>
+                    <a class="blo" href="?do=know">講座管理</a>
+                    <a class="blo" href="?do=que">問卷管理</a>
+                </div>
+                <div class="hal" id="main">
+                    <div>
+                        <div style="width:75%; display:inline-block;">
+                            <marquee>請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
+                        </div>
+                        <span style="width:24%; display:inline-block;">
+                            <div>歡迎,admin</div>
+                            <button>管理</button>|
+                            <button>登出</button>
+                        </span>
                     </div>
-                    <span style="width:24%; display:inline-block;">
-                        <div>歡迎,admin</div>
-                        <button>管理</button>|
-                        <button>登出</button>
-                    </span>
+
+                    <?php
+                        $do   = $_GET['do'] ?? 'main';
+                        $file = "back/" . $do . ".php";
+                        if (file_exists($file)) {
+                            include $file;
+                        } else {
+                            include "back/main.php";
+                        }
+                    ?>
                 </div>
 
-                <?php
-                    $do   = $_GET['do'] ?? 'main';
-                    $file = "back/" . $do . ".php";
-                    if (file_exists($file)) {
-                        include $file;
-                    } else {
-                        include "back/main.php";
-                    }
-                ?>
+
             </div>
-
-
+            <div id="bottom">
+                本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2025健康促進網社群平台 All Right Reserved
+                <br>
+                服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
+            </div>
         </div>
-        <div id="bottom">
-            本網站建議使用：IE9.0以上版本，1024 x 768 pixels 以上觀賞瀏覽 ， Copyright © 2025健康促進網社群平台 All Right Reserved
-            <br>
-            服務信箱：health@test.labor.gov.tw<img src="./icon/02B02.jpg" width="45">
-        </div>
-    </div>
 
 </body>
 
