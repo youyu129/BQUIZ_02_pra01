@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-02-20 09:10:57
+-- 產生時間： 2025-02-20 11:17:55
 -- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.2.12
+-- PHP 版本： 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,17 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- 傾印資料表的資料 `users`
+--
+
+INSERT INTO `users` (`id`, `acc`, `pw`, `email`) VALUES
+(1, '123', '123', '123'),
+(2, 'admin', '1234', 'admin@labor.gov.tw'),
+(3, 'test', '5678', 'test@labor.gov.tw'),
+(4, 'mem01', 'mem01', 'mem01@labor.gov.tw'),
+(5, 'mem02', 'mem02', 'mem02@labor.gov.tw');
+
+--
 -- 已傾印資料表的索引
 --
 
@@ -52,7 +63,7 @@ ALTER TABLE `users`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,6 @@
 <?php
 include_once "db.php";
 
-$_POST['acc'];
+unset($_POST['pw2']);
+echo $User->save($_POST);
 ?>

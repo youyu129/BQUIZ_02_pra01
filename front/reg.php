@@ -49,20 +49,22 @@ function reg() {
         alert("不可空白")
     } else if (user.pw != user.pw2) {
         alert("密碼錯誤")
-    } else if (
+    } else {
         $.get("./api/chk_acc.php", {
             acc: user.acc
         }, (res) => {
+            console.log("chkacc=>", res);
             if (parseInt(res) > 0) {
                 alert("帳號重複")
             } else {
                 $.post("./api/reg.php", user, (res) => {
+                    console.log("reg=>", res);
                     if (parseInt(res) == 1) {
                         alert("註冊完成，歡迎加入")
                     }
                 })
             }
         })
-    )
+    }
 }
 </script>
