@@ -47,10 +47,22 @@ function reg() {
 
     if (user.acc == "" || user.pw == "" || user.pw2 == "" || user.email == "") {
         alert("不可空白")
-    }
-    if (user.pw != user.pw2) {
+    } else if (user.pw != user.pw2) {
         alert("密碼錯誤")
-    }
-
+    } else if (
+        $.get("./api/chk_acc.php", {
+            acc: user.acc
+        }, (res) => {
+            if (parseInt(res) == 1) {
+                alert("帳號重複")
+            } else {
+                $.post("./api/reg.php", user, (res) => {
+                    if (parseInt(res) == 1) {
+                        alert("註冊完成，歡迎加入")
+                    }
+                })
+            }
+        })
+    )
 }
 </script>
