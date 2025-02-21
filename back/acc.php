@@ -87,8 +87,8 @@ function reg() {
                 $.post("./api/reg.php", user, (res) => {
                     console.log("reg=>", res);
                     if (parseInt(res) == 1) {
+                        location.reload()
                         alert("新增完成")
-
                     }
                 })
             }
@@ -105,6 +105,6 @@ function reset() {
 }
 
 function resetCheckbox() {
-
+    $(".checkbox").prop('checked', false)
 }
 </script>
