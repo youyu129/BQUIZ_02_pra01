@@ -1,32 +1,34 @@
 <fieldset>
     <legend>帳號管理</legend>
-    <table width="80%" style="margin:auto;" class="ct">
-        <tr>
-            <td width="40%" class="clo">帳號</td>
-            <td width="30%" class="clo">密碼</td>
-            <td width="30%" class="clo">刪除</td>
-        </tr>
-        <?php
-            $rows = $User->all();
-            foreach ($rows as $row):
-        ?>
-        <tr>
-            <td><?php echo $row['acc']; ?></td>
-            <td>
-                <?php echo str_repeat("*", strlen($row['pw'])); ?>
-            </td>
-            <td>
-                <input type="checkbox" name="del[]" class="checkbox" value="<?php echo $row['id']; ?>">
-            </td>
-        </tr>
-        <?php
-            endforeach;
-        ?>
-    </table>
-    <div class="ct">
-        <button>確定刪除</button>
-        <button onclick="resetCheckbox()">清空選取</button>
-    </div>
+    <form action="api/del.php" method='post'>
+        <table width="80%" style="margin:auto;" class="ct">
+            <tr>
+                <td width="40%" class="clo">帳號</td>
+                <td width="30%" class="clo">密碼</td>
+                <td width="30%" class="clo">刪除</td>
+            </tr>
+            <?php
+                $rows = $User->all();
+                foreach ($rows as $row):
+            ?>
+            <tr>
+                <td><?php echo $row['acc']; ?></td>
+                <td>
+                    <?php echo str_repeat("*", strlen($row['pw'])); ?>
+                </td>
+                <td>
+                    <input type="checkbox" name="del[]" class="checkbox" value="<?php echo $row['id']; ?>">
+                </td>
+            </tr>
+            <?php
+                endforeach;
+            ?>
+        </table>
+        <div class="ct">
+            <input type="submit" value="確定刪除">
+            <button onclick="resetCheckbox()">清空選取</button>
+        </div>
+    </form>
 
     <h2>新增會員
 
@@ -100,8 +102,6 @@ function reg() {
 function reset() {
     $("#acc").val("")
     $("#pw").val("")
-    $("#pw2").val("")
-    $("#email").val("")
 }
 
 function resetCheckbox() {
