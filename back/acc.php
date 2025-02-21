@@ -1,6 +1,6 @@
 <fieldset>
     <legend>帳號管理</legend>
-    <form action="api/del.php" method='post'>
+    <form action="api/del_acc.php" method='post'>
         <table width="80%" style="margin:auto;" class="ct">
             <tr>
                 <td width="40%" class="clo">帳號</td>
