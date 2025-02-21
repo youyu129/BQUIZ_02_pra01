@@ -6,18 +6,26 @@
             <td width="30%" class="clo">密碼</td>
             <td width="30%" class="clo">刪除</td>
         </tr>
+        <?php
+            $rows = $User->all();
+            foreach ($rows as $row):
+        ?>
         <tr>
-            <td>acc</td>
-            <td>pw</td>
+            <td><?php echo $row['acc']; ?></td>
             <td>
-                <input type="checkbox" name="del" id="del">
+                <?php echo str_repeat("*", strlen($row['pw'])); ?>
+            </td>
+            <td>
+                <input type="checkbox" name="del[]" class="checkbox" value="<?php echo $row['id']; ?>">
             </td>
         </tr>
-
+        <?php
+            endforeach;
+        ?>
     </table>
     <div class="ct">
         <button>確定刪除</button>
-        <button>清空選取</button>
+        <button onclick="resetCheckbox()">清空選取</button>
     </div>
 
     <h2>新增會員
@@ -80,11 +88,13 @@ function reg() {
                     console.log("reg=>", res);
                     if (parseInt(res) == 1) {
                         alert("新增完成")
+
                     }
                 })
             }
         })
     }
+    reset()
 }
 
 function reset() {
@@ -92,5 +102,9 @@ function reset() {
     $("#pw").val("")
     $("#pw2").val("")
     $("#email").val("")
+}
+
+function resetCheckbox() {
+
 }
 </script>
