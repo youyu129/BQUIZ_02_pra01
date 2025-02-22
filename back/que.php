@@ -5,11 +5,11 @@
         <tr>
             <td class="clo">問卷名稱</td>
             <td>
-                <input type="text" name="" id="">
+                <input type="text" name="subject" id="subject">
             </td>
         </tr>
         <tr>
-            <td class="clo options">
+            <td colspan="2" class="clo options">
                 選項<input type="text" name="options" id="">
                 <button onclick="more()">更多</button>
             </td>
