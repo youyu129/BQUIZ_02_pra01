@@ -29,6 +29,6 @@
 function more() {
     let more = `<div>選項<input type="text" name="options" id=""><div>`
     $(".options").prepend(more)
-    // location.reload()
+
 }
 </script>
