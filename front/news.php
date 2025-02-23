@@ -1,3 +1,6 @@
+<style>
+
+</style>
 <fieldset>
     <legend>目前位置：首頁 > 最新文章區</legend>
 
@@ -19,8 +22,11 @@
         foreach($rows as $row):
         ?>
         <tr>
-            <td class="clo"><?=$row['title'];?></td>
-            <td><?=mb_substr($row['text'],0,25);?>...</td>
+            <td class="clo title"><?=$row['title'];?></td>
+            <td>
+                <span class="text"><?=mb_substr($row['text'],0,25);?>...</span>
+                <span class="detail"><?=$row['text'];?>...</span>
+            </td>
             <td>
 
                 <?php
@@ -79,5 +85,11 @@ $(".like").on('click', function() {
 
     })
 
+})
+
+$(".detail").hide()
+
+$(".title").on('click', function() {
+    $(this).next().children('.text,.detail').toggle()
 })
 </script>
