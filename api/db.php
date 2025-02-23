@@ -166,11 +166,10 @@ class DB
 
 }
 // this要在物件內才可用
-function q($sql)
-{
-    $pdo = new PDO("mysql:host=localhost;charset=utf8;dbname=db0202", 'root', '');
+function q($sql){
+    $pdo=new PDO("mysql:host=localhost;charset=utf8;dbname=db0202",'root','');
     return $pdo->query($sql)->fetchAll();
-}
+} 
 
 function dd($array)
 {
@@ -187,7 +186,7 @@ function to($url)
 $Total = new DB('total');
 $User  = new DB('users');
 $New   = new DB('news');
-$Que   = new DB('que');
+$Que   = new DB('ques');
 $Log   = new DB('log');
 
 // 如果沒來過的人

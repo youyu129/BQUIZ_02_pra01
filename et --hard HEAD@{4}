@@ -1,0 +1,43 @@
+[33mf1e90ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD
+[33mf1e90ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{1}: reset: moving to head^^
+[33m769cfdb[m HEAD@{2}: reset: moving to head^
+[33m6bf6a23[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{3}: commit: 完成新增問卷的功能
+[33m769cfdb[m HEAD@{4}: commit: 新增問卷的api(功能未完成)
+[33m65ee516[m HEAD@{5}: commit: 新增問卷選項的name
+[33mf1e90ba[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{6}: commit: 新增問卷名稱的name 調整選項的表格合併兩格
+[33m01d6f35[m HEAD@{7}: commit: 新增問卷調查資料表
+[33m4252f35[m HEAD@{8}: commit: 新增後台問卷調查的畫面 更多按鈕的功能
+[33m1caeb73[m HEAD@{9}: commit: 完成最新文章的修改功能 改變顯示 刪除功能
+[33m5ba1cdf[m HEAD@{10}: pull: Fast-forward
+[33md629189[m HEAD@{11}: commit: 新增忘記密碼功能
+[33me4fecae[m HEAD@{12}: commit: 完成管理者登入後 在前台畫面顯示管理按鈕 非管理者則沒有
+[33mf743300[m HEAD@{13}: commit: 完成後台登入的管理按鈕 點擊後會跳轉回後台首頁
+[33mff1bea0[m HEAD@{14}: commit: 完成後台登入時會顯示使用者帳號 完成後台登出會跳回首頁
+[33m5124aad[m HEAD@{15}: commit: 完成前台登入時會顯示使用者帳號 完成登出功能的AJAX及API
+[33m4ed9063[m HEAD@{16}: commit: 完成登入畫面的帳號密碼檢查的ajax請求 登入成功會跳轉到首頁 管理者登入會跳轉到後台首頁 新增檢查帳號的api\ 無帳號或密碼錯誤時會清空內容
+[33m0a2089d[m HEAD@{17}: commit: merge
+[33m72ebc10[m HEAD@{18}: commit: 完成登入畫面的清除按鈕功能
+[33ma445527[m HEAD@{19}: commit: 修改註冊畫面reset功能 多餘的逗號
+[33m50acc5a[m HEAD@{20}: commit: 新增註冊畫面reset的功能
+[33m6d7714d[m HEAD@{21}: commit: 完成註冊的api 新增題目要求的四組帳號 更新資料表匯出的檔案
+[33m19cc9d1[m HEAD@{22}: commit: 完成檢查帳號的api
+[33m6fe73e9[m HEAD@{23}: pull: Fast-forward
+[33m7b75a87[m HEAD@{24}: commit: 新增db的fetchOne() fetchAll()
+[33m403e70a[m HEAD@{25}: commit: 新增db的save()
+[33m77c5d8a[m HEAD@{26}: commit: 新增db的a2s()
+[33mfbdb4fa[m HEAD@{27}: commit: 新增db的del()
+[33me1005cc[m HEAD@{28}: pull: Fast-forward
+[33ma03321a[m HEAD@{29}: commit: 新增total資料表
+[33ma1602f0[m HEAD@{30}: commit: 將index複製為admin 修改include的檔案路徑為back 修改導覽列功能文字及連結 完成後台主畫面 右上角的按鈕
+[33m19b0f4f[m HEAD@{31}: commit: 完成動態文字廣告跑馬燈 設定寬度 跟會員登入對調位置
+[33m22b4cff[m HEAD@{32}: commit: 調整mm lef main 的高度為518 讓高度在768內
+[33mdb728c6[m HEAD@{33}: commit: 新增標題圖片 替代文字 連結回首頁
+[33ma7d88c9[m HEAD@{34}: commit: 修改index頁尾版權年份為2025
+[33mb8dbc98[m HEAD@{35}: commit: 刪除index的iframe
+[33m16cd161[m HEAD@{36}: commit: 刪除front的講座訊息檔案know 不需要做
+[33m5143901[m HEAD@{37}: commit: 將index的include內容放到main的div內 新增五個前台頁面的檔案
+[33mb04ce44[m HEAD@{38}: commit: 將index的main的內容移除
+[33m022a1fc[m HEAD@{39}: commit: 新增main的內容
+[33m1e1baba[m HEAD@{40}: commit: 新增需要用的資料夾
+[33mc13b8d7[m HEAD@{41}: commit: 修改首頁下方QRcode的路徑
+[33me7ef3df[m HEAD@{42}: clone: from https://github.com/youyu129/BQUIZ_02_pra01.git
