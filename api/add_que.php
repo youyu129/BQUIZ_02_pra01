@@ -13,4 +13,4 @@ foreach($_POST['options'] as $option){
     $Que->save(['text'=>$option,'main_id'=>$subject_id,'vote'=>0]);
 }
 
-to("../admin.php?do=que");
+// to("../admin.php?do=que");
