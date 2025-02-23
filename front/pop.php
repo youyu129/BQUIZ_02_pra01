@@ -5,8 +5,8 @@
         <tr class="ct">
             <td width="30%">標題</td>
             <td>內容</td>
-            <td>人氣</td>
-            <td></td>
+            <td width="15%">人氣</td>
+            <td width="15%"></td>
         </tr>
         <?php
 
@@ -16,14 +16,17 @@
         $now=$_GET['p']??1;
         $start=($now-1)*$div;
 
-        $rows=$New->all(" limit $start,$div");
+        $rows=$New->all(" order by `likes` desc limit $start,$div");
         foreach($rows as $row):
         ?>
         <tr>
             <td class="clo"><?=$row['title'];?></td>
             <td><?=mb_substr($row['text'],0,25);?>...</td>
-            <td>個人說<span class="good"></span></td>
-            <td>
+            <?php
+            $people=$Good->count(['news'=>$row['id']]);
+            ?>
+            <td class="ct"><?=$people;?>個人說<span class="good"></span></td>
+            <td class="ct">
 
                 <?php
                 if(isset($_SESSION['login'])){
@@ -42,17 +45,17 @@
     <div>
         <?php
     if(($now-1)<0){
-        echo "<a href='?do=news&p='".($now-1)."'> < </a>";
+        echo "<a href='?do=pop&p='".($now-1)."'> < </a>";
     }
 
     for ($i=1; $i <=$pages ; $i++) { 
         // echo $i;
         $size=($i==$now)?'24px':'18px';
-        echo "<a href='?do=news&p=$i' style='font-size:$size'> $i </a>";
+        echo "<a href='?do=pop&p=$i' style='font-size:$size'> $i </a>";
     }
 
     if(($now+1)<=$pages){
-        echo "<a href='?do=news&p='".($now+1)."'> > </a>";
+        echo "<a href='?do=pop&p='".($now+1)."'> > </a>";
     }
     
     ?>
