@@ -22,9 +22,12 @@
             <td class="clo"><?=$row['title'];?></td>
             <td><?=mb_substr($row['text'],0,25);?>...</td>
             <td>
+
                 <?php
                 if(isset($_SESSION['login'])){
-                    echo "讚";
+                    $chk=$Good->count(['news'=>$row['id'],'user'=>$_SESSION['login']]);
+                    $like=($chk>0)?'收回讚':'讚';
+                    echo "<a href='#' data-id='{$row['id']}' class='like'>$like</a>";
                 }
                 ?>
                 <!-- <?=$row['likes'];?> -->
@@ -53,3 +56,28 @@
     ?>
     </div>
 </fieldset>
+
+<script>
+$(".like").on('click', function() {
+    let id = $(this).data('id')
+    // console.log('id', id);
+    let like = $(this).text()
+    // console.log('like', like);
+    switch (
+        like) {
+        case "讚":
+            $(this).text("收回讚")
+            break
+        case "收回讚":
+            $(this).text("讚")
+            break
+    }
+    $.post("./api/like.php", {
+        id
+    }, function() {
+
+
+    })
+
+})
+</script>
