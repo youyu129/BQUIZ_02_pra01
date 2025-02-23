@@ -8,7 +8,7 @@
         <tr class="ct">
             <td width="30%">標題</td>
             <td>內容</td>
-            <td></td>
+            <td width="10%"></td>
         </tr>
         <?php
 
