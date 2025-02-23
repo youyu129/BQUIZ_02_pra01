@@ -2,10 +2,10 @@
     <legend>目前位置：首頁 > 最新文章區</legend>
 
     <table>
-        <tr>
+        <tr class="ct">
             <td width="30%">標題</td>
             <td>內容</td>
-            <td>讚</td>
+            <td></td>
         </tr>
         <?php
 
@@ -20,8 +20,15 @@
         ?>
         <tr>
             <td class="clo"><?=$row['title'];?></td>
-            <td><?=substr($row['text'],0,30);?>...</td>
-            <td><?=$row['likes'];?></td>
+            <td><?=mb_substr($row['text'],0,25);?>...</td>
+            <td>
+                <?php
+                if(isset($_SESSION['login'])){
+                    echo "讚";
+                }
+                ?>
+                <!-- <?=$row['likes'];?> -->
+            </td>
         </tr>
         <?php
         endforeach;

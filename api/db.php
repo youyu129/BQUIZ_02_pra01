@@ -187,7 +187,7 @@ $Total = new DB('total');
 $User  = new DB('users');
 $New   = new DB('news');
 $Que   = new DB('ques');
-$Log   = new DB('log');
+$Good   = new DB('goods');
 
 // 如果沒來過的人
 if (! isset($_SESSION['view'])) {
