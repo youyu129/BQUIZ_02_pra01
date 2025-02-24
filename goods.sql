@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2025-02-23 16:55:09
+-- 產生時間： 2025-02-24 07:45:01
 -- 伺服器版本： 10.4.32-MariaDB
--- PHP 版本： 8.0.30
+-- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,13 +38,17 @@ CREATE TABLE `goods` (
 --
 
 INSERT INTO `goods` (`id`, `user`, `news`) VALUES
-(3, 'admin', 2),
-(5, 'admin', 11),
-(6, 'admin', 10),
-(8, 'admin', 9),
-(9, 'test', 1),
-(10, 'test', 2),
-(11, 'test', 6);
+(1, 'admin', 4),
+(2, 'admin', 1),
+(3, 'admin', 8),
+(4, 'youyu', 4),
+(5, 'youyu', 2),
+(6, 'mem01', 7),
+(7, 'mem01', 6),
+(8, 'mem01', 4),
+(9, 'mem01', 2),
+(10, 'test', 4),
+(12, 'test', 7);
 
 --
 -- 已傾印資料表的索引
@@ -64,7 +68,7 @@ ALTER TABLE `goods`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `goods`
 --
 ALTER TABLE `goods`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
