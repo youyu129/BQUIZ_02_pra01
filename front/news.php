@@ -22,10 +22,10 @@
             foreach ($rows as $row):
         ?>
         <tr>
-            <td class="clo title"><?php echo $row['title'];?></td>
+            <td class="clo title"><?php echo $row['title']; ?></td>
             <td>
-                <span class="text"><?php echo mb_substr($row['text'], 0, 25);?>...</span>
-                <span class="detail"><?php echo $row['text'];?>...</span>
+                <span class="text"><?php echo mb_substr($row['text'], 0, 25); ?>...</span>
+                <span class="detail"><?php echo $row['text']; ?>...</span>
             </td>
             <td>
 
@@ -36,7 +36,7 @@
                         echo "<a href='#' data-id='{$row['id']}' class='like'>$like</a>";
                     }
                 ?>
-                <!-- <?php echo $row['likes'];?> -->
+                <!--<?php echo $row['likes']; ?> -->
             </td>
         </tr>
         <?php
@@ -78,12 +78,12 @@ $(".like").on('click', function() {
             $(this).text("讚")
             break
     }
-    location.reload()
     $.post("./api/like.php", {
         id
     }, function() {
 
 
+        location.reload()
     })
 
 })

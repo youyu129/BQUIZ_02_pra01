@@ -42,11 +42,7 @@
                     <?php echo $row['text']; ?>
                 </span>
             </td>
-
-            <?php
-                $people = $Good->count(['news' => $row['id']]);
-            ?>
-            <td class="ct"><?php echo $people; ?>個人說<span class="good"></span></td>
+            <td class="ct"><?php echo $row['likes']; ?>個人說<span class="good"></span></td>
             <td class="ct">
 
                 <?php
@@ -105,6 +101,7 @@ $(".like").on('click', function() {
     }, function() {
 
 
+        location.reload()
     })
 
 })
