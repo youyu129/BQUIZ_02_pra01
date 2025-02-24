@@ -1,19 +1,27 @@
+<?php
+    $id   = $_GET['id'];
+    $rows = $Que->all(['id' => $id]);
+    foreach ($rows as $row) {
+        // echo $row['text'];
+    }
+?>
 <fieldset>
-    <legend>目前位置：首頁 > 問卷調查 > <span>Q1</span></legend>
+    <legend>目前位置：首頁 > 問卷調查 > <span><?php echo $row['text']; ?></span></legend>
 
-    <table>
+
+    <div style="margin-top:20px;">
+        <?php echo $row['text']; ?>
+    </div>
+
+    <div style="margin-top:10px;">
         <?php
-            $rows = $Que->all(['main_id' => $_POST['id']]);
+            $main_id = $row['id'];
+            $items   = $Que->all(['main_id' => $main_id]);
+            // dd($items);
+            foreach ($items as $item) {
+                echo "<div style='margin-top:20px;'><input type='radio' name='item'>" . $item['text'] . "</div>";
+            }
         ?>
-        <tr>
-            <td>
-                題目
-            </td>
-        </tr>
-        <tr>
-            <td>
-                選項
-            </td>
-        </tr>
-    </table>
+    </div>
+
 </fieldset>

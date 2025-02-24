@@ -15,15 +15,15 @@
         ?>
         <tr style="text-align:center">
             <td><?php echo $key + 1; ?>.</td>
-            <td style="padding:10px;"><?php echo $row['text']; ?></td>
+            <td style="padding:10px;text-align:left;"><?php echo $row['text']; ?></td>
             <td style="padding:10px;"><?php echo $row['vote']; ?></td>
             <td>
-                <a href="?do=result">結果</a>
+                <a href="?do=result&id=<?php echo $row['id']; ?>">結果</a>
             </td>
             <td>
                 <?php
                     if (isset($_SESSION['login'])) {
-                        echo "<a href='?do=vote'>參與投票</a>";
+                        echo "<a href='?do=vote&id={$row['id']}'>參與投票</a>";
                     } else {
                         echo "請先登入";
                     }
