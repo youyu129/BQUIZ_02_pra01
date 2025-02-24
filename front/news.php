@@ -12,54 +12,54 @@
         </tr>
         <?php
 
-        $div=5;
-        $all=$New->count();
-        $pages=ceil($all/$div);
-        $now=$_GET['p']??1;
-        $start=($now-1)*$div;
+            $div   = 5;
+            $all   = $New->count();
+            $pages = ceil($all / $div);
+            $now   = $_GET['p'] ?? 1;
+            $start = ($now - 1) * $div;
 
-        $rows=$New->all(" limit $start,$div");
-        foreach($rows as $row):
+            $rows = $New->all(" limit $start,$div");
+            foreach ($rows as $row):
         ?>
         <tr>
-            <td class="clo title"><?=$row['title'];?></td>
+            <td class="clo title"><?php echo $row['title'];?></td>
             <td>
-                <span class="text"><?=mb_substr($row['text'],0,25);?>...</span>
-                <span class="detail"><?=$row['text'];?>...</span>
+                <span class="text"><?php echo mb_substr($row['text'], 0, 25);?>...</span>
+                <span class="detail"><?php echo $row['text'];?>...</span>
             </td>
             <td>
 
                 <?php
-                if(isset($_SESSION['login'])){
-                    $chk=$Good->count(['news'=>$row['id'],'user'=>$_SESSION['login']]);
-                    $like=($chk>0)?'收回讚':'讚';
-                    echo "<a href='#' data-id='{$row['id']}' class='like'>$like</a>";
-                }
+                    if (isset($_SESSION['login'])) {
+                        $chk  = $Good->count(['news' => $row['id'], 'user' => $_SESSION['login']]);
+                        $like = ($chk > 0) ? '收回讚' : '讚';
+                        echo "<a href='#' data-id='{$row['id']}' class='like'>$like</a>";
+                    }
                 ?>
-                <!-- <?=$row['likes'];?> -->
+                <!-- <?php echo $row['likes'];?> -->
             </td>
         </tr>
         <?php
-        endforeach;
+            endforeach;
         ?>
     </table>
     <div>
         <?php
-    if(($now-1)<0){
-        echo "<a href='?do=news&p='".($now-1)."'> < </a>";
-    }
+            if (($now - 1) < 0) {
+                echo "<a href='?do=news&p='" . ($now - 1) . "'> < </a>";
+            }
 
-    for ($i=1; $i <=$pages ; $i++) { 
-        // echo $i;
-        $size=($i==$now)?'24px':'18px';
-        echo "<a href='?do=news&p=$i' style='font-size:$size'> $i </a>";
-    }
+            for ($i = 1; $i <= $pages; $i++) {
+                // echo $i;
+                $size = ($i == $now) ? '24px' : '18px';
+                echo "<a href='?do=news&p=$i' style='font-size:$size'> $i </a>";
+            }
 
-    if(($now+1)<=$pages){
-        echo "<a href='?do=news&p='".($now+1)."'> > </a>";
-    }
-    
-    ?>
+            if (($now + 1) <= $pages) {
+                echo "<a href='?do=news&p='" . ($now + 1) . "'> > </a>";
+            }
+
+        ?>
     </div>
 </fieldset>
 
@@ -78,6 +78,7 @@ $(".like").on('click', function() {
             $(this).text("讚")
             break
     }
+    location.reload()
     $.post("./api/like.php", {
         id
     }, function() {

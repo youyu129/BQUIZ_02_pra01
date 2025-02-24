@@ -85,17 +85,19 @@
 
 <script>
 $(".like").on('click', function() {
+    // console.log("like onclick ok");
+
     let id = $(this).data('id')
     // console.log('id', id);
     let like = $(this).text()
     // console.log('like', like);
     switch (
         like) {
-        case "讚":
-            $(this).text("收回讚")
+        case "-讚":
+            $(this).text("-收回讚")
             break
-        case "收回讚":
-            $(this).text("讚")
+        case "-收回讚":
+            $(this).text("-讚")
             break
     }
     $.post("./api/like.php", {
