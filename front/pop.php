@@ -37,7 +37,10 @@
             <td class="clo click_title"><?php echo $row['title']; ?></td>
             <td style="position:relative" class="art">
                 <span class="text"><?php echo mb_substr($row['text'], 0, 25); ?>...</span>
-                <span class="detail"><?php echo $row['text']; ?></span>
+                <span class="detail">
+                    <h3 style="color:skyblue"><?php echo $New::$type[$row['type']]; ?></h3>
+                    <?php echo $row['text']; ?>
+                </span>
             </td>
 
             <?php
