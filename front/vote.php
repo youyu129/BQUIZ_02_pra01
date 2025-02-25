@@ -8,7 +8,7 @@
 <fieldset>
     <legend>目前位置：首頁 > 問卷調查 > <span><?php echo $row['text']; ?></span></legend>
 
-    <form action="">
+    <form action="api/vote.php" method="post">
         <div style="margin-top:20px;">
             <?php echo $row['text']; ?>
         </div>
@@ -19,7 +19,10 @@
                 $items   = $Que->all(['main_id' => $main_id]);
                 // dd($items);
                 foreach ($items as $item) {
-                    echo "<div style='margin-top:20px;'><input type='radio' name='item'>" . $item['text'] . "</div>";
+                    echo "<p style='margin-top:20px;'>";
+                    echo "<input type='radio' name='item' value='{$item['id']}'> ";
+                    echo $item['text'];
+                    echo "</p>";
                 }
             ?>
         </div>
