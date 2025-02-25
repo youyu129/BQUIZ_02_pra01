@@ -26,16 +26,16 @@
             foreach ($items as $item):
 
                 // dd($item);
-                $radio = round($item['vote'] / $row['vote'] * 100, 2);
+                $rate = round($item['vote'] / $row['vote'] * 100, 2);
 
             ?>
 	        <tr>
 	            <td width="40%"><?php echo $item['text']; ?></td>
 	            <td width="40%">
-	                <div class="box" style="width:<?php echo $radio; ?>%;height:20px"></div>
+	                <div class="box" style="width:<?php echo $rate; ?>%;height:20px">&nbsp;</div>
 	            </td>
 
-	            <td width="20%"><?php echo $item['vote']; ?>票(<?php echo $radio; ?>%)</td>
+	            <td width="20%"><?php echo $item['vote']; ?>票(<?php echo $rate; ?>%)</td>
 	        </tr>
 	        <?php
                 endforeach;

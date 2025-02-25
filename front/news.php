@@ -82,7 +82,6 @@ $(".like").on('click', function() {
         id
     }, function() {
 
-
         location.reload()
     })
 
