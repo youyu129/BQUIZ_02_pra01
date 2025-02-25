@@ -46,22 +46,22 @@
                     </div>
                     <span style="width:24%; display:inline-block;">
                         <?php
-                        if(empty($_SESSION['login'])){
-                            echo "<a href='index.php?do=login'>會員登入</a>";
-                        }else{
-                            if($_SESSION['login']=='admin'){
-                            echo "<p>歡迎，";
-                            echo $_SESSION['login'];
-                            echo "</p>";
-                            echo "<button onclick=\"location.href='admin.php'\">管理</button>|";
-                            echo "<button onclick='logout()'>登出</button>";
-                            }else{
-                                echo "<span>歡迎，";
-                                echo $_SESSION['login'];
-                                echo "</span>";
-                                echo "<button onclick='logout()'>登出</button>";
+                            if (empty($_SESSION['login'])) {
+                                echo "<a href='index.php?do=login'>會員登入</a>";
+                            } else {
+                                if ($_SESSION['login'] == 'admin') {
+                                    echo "<p>歡迎，";
+                                    echo $_SESSION['login'];
+                                    echo "</p>";
+                                    echo "<button onclick=\"location.href='admin.php'\">管理</button>|";
+                                    echo "<button onclick='logout()'>登出</button>";
+                                } else {
+                                    echo "<span>歡迎，";
+                                    echo $_SESSION['login'];
+                                    echo "</span>";
+                                    echo "<button onclick='logout()'>登出</button>";
+                                }
                             }
-                        }
                         ?>
 
                     </span>
