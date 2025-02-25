@@ -24,17 +24,22 @@
             $items   = $Que->all(['main_id' => $main_id]);
             // dd($items);
             foreach ($items as $item):
-        ?>
-        <tr>
-            <td width="40%"><?php echo $item['text']; ?></td>
-            <td width="40%">
-                <div class="box" style="width:40%;height:20px"></div>
-            </td>
-            <td width="20%">2票(40%)</td>
-        </tr>
-        <?php
-            endforeach;
-        ?>
+
+                // dd($item);
+                $radio = round($item['vote'] / $row['vote'] * 100, 2);
+
+            ?>
+	        <tr>
+	            <td width="40%"><?php echo $item['text']; ?></td>
+	            <td width="40%">
+	                <div class="box" style="width:<?php echo $radio; ?>%;height:20px"></div>
+	            </td>
+
+	            <td width="20%"><?php echo $item['vote']; ?>票(<?php echo $radio; ?>%)</td>
+	        </tr>
+	        <?php
+                endforeach;
+            ?>
     </table>
 
     <div style="margin-top:10px;">
